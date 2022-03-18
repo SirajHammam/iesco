@@ -5,6 +5,17 @@
 
 <div class="container-fluid px-4">
     <h1 class="mt-4">{{ $title }}</h1>
+
+    @if (session()->has('success'))
+        <div id="success" class="alert alert-success alert-dismissible fade show" role="alert">
+            <div>{{ session('success') }}</div>
+        </div>
+    @endif
+    @if (session()->has('deleted'))
+    <div class="alert alert-danger" role="alert" id="loginerror">
+        {{ session('deleted') }}
+    </div>
+    @endif
     <hr class="mt-4 mb-4">
     
     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Event</button>
@@ -24,6 +35,7 @@
         </div>
       @endforeach  
     </div>
+    
 </div>
 
 <!-- Modal -->
@@ -56,8 +68,8 @@
             </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Add Data</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Add Data</button>
         </div>
     </div>
     </div>

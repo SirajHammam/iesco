@@ -56,8 +56,6 @@ class EventController extends Controller
         ]);
         $event = Event::find($id);
         $slug = Str::slug($request->input('name'));
-        dd($validatedData);
-
 
         $event = Event::where('id',$event->id)->update([
             'name' => $request->input('name'),
@@ -77,7 +75,7 @@ class EventController extends Controller
             'syarat' => 'required|max:255',
             'gambar' => 'required'
         ]); 
-        
+
         $slug = Str::slug($request->input('name'));
         $img = $request->file('gambar')->store('public/gallery');
         Event::create([
@@ -88,6 +86,6 @@ class EventController extends Controller
             'slug' => $slug
         ]);
 
-        return back()->with('success', 'registrasi berhasil harap login');
+        return back()->with('success', 'Data Berhasil ditambahkan');
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,14 @@ Route::middleware(['auth:sanctum', 'verified',])->group(function(){
     Route::get('/event', [EventController::class, 'index']);
     Route::post('/event', [EventController::class, 'store']);
     Route::get('/show/{slug}', [EventController::class, 'show']);
-    
     Route::get('/edit/{slug}', [EventController::class, 'edit']);
     Route::put('/update/{slug}', [EventController::class, 'update']);
-
     Route::delete('/event/{id}', [EventController::class, 'hapus']);
+    
+    Route::get('/doc', [DocController::class, 'index']);
+    Route::post('/doc', [DocController::class, 'store']);
+    Route::get('/show2/{slug}', [DocController::class, 'show2']);
+    Route::delete('/doc/{id}', [DocController::class, 'hapus']);
+
+
 });

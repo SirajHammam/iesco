@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark  fixed-top bg-dark">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="/assets/img/logos.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            {{-- <img src="/assets/img/logos.png" width="30" height="30" class="d-inline-block align-top" alt=""> --}}
             <b>IESCO</b>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person-circle"></i>
-                        Profile    
+                        {{ Auth::user()->username }}    
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/profile">
